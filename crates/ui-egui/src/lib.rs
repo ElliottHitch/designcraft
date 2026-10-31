@@ -10,6 +10,8 @@
 /// prompt shows both, and an AppImage's menu entry gets the icon.
 #[cfg(not(target_arch = "wasm32"))]
 pub const UPDATE_APP: craft_update::app::App = craft_update::app::App {
+    // This fork checks its own releases, so an update never replaces it with an upstream build.
+    repo: "ElliottHitch/designcraft",
     icon_png: Some(include_bytes!("../../../assets/app-icon/hicolor/128x128/apps/ai.storyteller.designcraft.png")),
     accent: Some([0x7b, 0xb5, 0x1c]),
     ..craft_update::suite::DESIGNCRAFT
